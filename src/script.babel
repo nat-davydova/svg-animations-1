@@ -1,27 +1,27 @@
 const cartIcon = '.cart-icon';
 
-//*** HELPER ANIMATIONS
-const lineAnimation = (elem, duration = 1500) => {
-  anime({
-    targets: `${elem} path`,
-    strokeDashoffset: [anime.setDashoffset, 0],
+//*** ICONS ANIMATIONS
+const cartIconAnimation = anime({
+  targets: `${cartIcon} path`,
+
+  strokeDashoffset: {
+    value: [anime.setDashoffset, 0],
     easing: 'easeInOutSine',
     duration: 1500,
     direction: 'alternate',
-    loop: false
-  });
-};
+  },
 
+  fill: {
+    value: '#000',
+    easing: 'linear',
+    duration: 400,
+    delay: 1500,
+  },
 
-//*** ICONS ANIMATIONS
-const cartIconAnimation = () => {
-  lineAnimation(cartIcon);
-};
+  loop: false
+});
 
 //*** REPLAYS INIT
 const cartReplay = document.querySelector('.cart-icon').nextElementSibling;
 
-cartReplay.addEventListener('click', cartIconAnimation);
-
-//*** ANIMATIONS ONLOAD
-cartIconAnimation();
+cartReplay.addEventListener('click', cartIconAnimation.restart);
