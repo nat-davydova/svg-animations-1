@@ -75,6 +75,7 @@ body a {
 .icon-block svg {
   width: 100%;
   height: 100%;
+  overflow: visible;
 }
 
 .icon-block__replay {
