@@ -93,12 +93,22 @@ body {
   justify-content: center;
 }
 
-.icon {
+.icon-block {
   width: 100px;
-  height: 100px;
+  
+  text-align: center;
+
+  .icon {
+    width: 100%;
+    height: 100px;
+  }
   
   svg {
     width: 100%;
     height: 100%;
   }
+}
+
+.icon-block__replay {
+  margin-top: 15px;
 }

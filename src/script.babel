@@ -18,4 +18,10 @@ const cartIconAnimation = () => {
   lineAnimation(cartIcon);
 };
 
+//*** REPLAYS INIT
+const cartReplay = document.querySelector('.cart-icon').nextElementSibling;
+
+cartReplay.addEventListener('click', cartIconAnimation);
+
+//*** ANIMATIONS ONLOAD
 cartIconAnimation();
