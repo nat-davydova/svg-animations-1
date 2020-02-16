@@ -89,6 +89,9 @@ cartReplay.addEventListener('click', function() {
 const signalReplay = document.querySelector('.signal-icon').nextElementSibling;
 
 signalReplay.addEventListener('click', function() {
+  
+  anime.set(`${signalIcon} .signal`, {opacity: 1});
+  
   signalOpacityAnimation.pause();
   signalIconAnimation.restart();
 });
