@@ -1,5 +1,6 @@
 const cartIcon = '.cart-icon';
 const signalIcon = '.signal-icon';
+const progressIcon = '.progress-icon';
 
 //*** ICONS ANIMATIONS
 
@@ -75,6 +76,41 @@ const signalIconAnimation = anime({
 
 
 
+//progress animation
+let arrowScaleAnimation;
+
+const progressIconAnimation = anime({
+  targets: `${progressIcon} path`,
+
+  strokeDashoffset: {
+    value: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 1000,
+    direction: 'alternate' },
+
+
+  fill: {
+    value: '#000',
+    easing: 'linear',
+    duration: 400,
+    delay: 1000 },
+
+
+  complete: function () {
+
+    arrowScaleAnimation = anime({
+      targets: `${progressIcon} .progress-arrow`,
+      translateY: [120, 0],
+      translateX: [120, 0],
+      duration: 1100,
+      easing: 'easeOutElastic',
+      direction: 'normal',
+      loop: true });
+
+
+  } });
+
+
 //*** REPLAYS INIT
 
 //cart replay init
@@ -94,4 +130,12 @@ signalReplay.addEventListener('click', function () {
 
   signalOpacityAnimation.pause();
   signalIconAnimation.restart();
+});
+
+//progress replay init
+const progressReplay = document.querySelector('.progress-icon').nextElementSibling;
+
+progressReplay.addEventListener('click', function () {
+  arrowScaleAnimation.pause();
+  progressIconAnimation.restart();
 });
