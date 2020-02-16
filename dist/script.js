@@ -136,6 +136,12 @@ signalReplay.addEventListener('click', function () {
 const progressReplay = document.querySelector('.progress-icon').nextElementSibling;
 
 progressReplay.addEventListener('click', function () {
+
+  anime.set(`${progressIcon} .progress-arrow`, {
+    translateX: 0,
+    translateY: 0 });
+
+
   arrowScaleAnimation.pause();
   progressIconAnimation.restart();
 });
