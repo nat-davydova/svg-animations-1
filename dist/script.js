@@ -78,7 +78,7 @@ const signalIconAnimation = anime({
 
 
 //progress animation
-let arrowScaleAnimation;
+let arrowMoveAnimation;
 
 const progressIconAnimation = anime({
   targets: `${progressIcon} path`,
@@ -99,7 +99,7 @@ const progressIconAnimation = anime({
 
   complete: function () {
 
-    arrowScaleAnimation = anime({
+    arrowMoveAnimation = anime({
       targets: `${progressIcon} .progress-arrow`,
       translateY: [120, 0],
       translateX: [120, 0],
@@ -113,6 +113,7 @@ const progressIconAnimation = anime({
 
 
 //rocket animation
+let rocketSmokeAnimation;
 
 const rocketIconAnimation = anime({
   targets: `${rocketIcon} path`,
@@ -128,8 +129,24 @@ const rocketIconAnimation = anime({
     value: '#000',
     easing: 'linear',
     duration: 400,
-    delay: 1000 } });
+    delay: 1000 },
 
+
+  complete: function () {
+
+    rocketSmokeAnimation = anime({
+      targets: `${rocketIcon} .rocket-smoke`,
+      translateY: [0, 20],
+      translateX: [0, -20],
+      opacity: [1, 0],
+      duration: 250,
+      delay: anime.stagger(150),
+      easing: 'linear',
+      direction: 'normal',
+      loop: true });
+
+
+  } });
 
 
 
@@ -164,7 +181,7 @@ progressReplay.addEventListener('click', function () {
     translateY: 0 });
 
 
-  arrowScaleAnimation.pause();
+  arrowMoveAnimation.pause();
   progressIconAnimation.restart();
 });
 
@@ -172,5 +189,12 @@ progressReplay.addEventListener('click', function () {
 const rocketReplay = document.querySelector('.rocket-icon').nextElementSibling;
 
 rocketReplay.addEventListener('click', function () {
+  anime.set(`${rocketIcon} .rocket-smoke`, {
+    translateX: 0,
+    translateY: 0,
+    opacity: 1 });
+
+
+  rocketSmokeAnimation.pause();
   rocketIconAnimation.restart();
 });
