@@ -6,21 +6,30 @@ const chatIcon = '.chat-icon';
 
 //*** ICONS ANIMATIONS
 
-//common animations
-const baseAnims = {
+//stroke animation
+const strokeAnim = {
   strokeDashoffset: {
     value: [anime.setDashoffset, 0],
     easing: 'easeInOutSine',
     duration: 1000,
     direction: 'alternate',
-  },
-  
+  }
+};
+
+//fill animation
+const fillAnim =  {
   fill: {
     value: '#000',
     easing: 'linear',
     duration: 400,
     delay: 1000,
-  },
+  }
+};
+
+//common animations
+const baseAnims = {
+  ...strokeAnim,
+  ...fillAnim
 };
 
 // cart animation
