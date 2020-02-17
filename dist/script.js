@@ -159,6 +159,9 @@ const chatIconAnimation = anime({
 const cartReplay = document.querySelector('.cart-icon').nextElementSibling;
 
 cartReplay.addEventListener('click', function () {
+
+  anime.set(`${cartIcon} .arrow`, { translateY: 0 });
+
   cartBounceAnimation.pause();
   cartIconAnimation.restart();
 });
