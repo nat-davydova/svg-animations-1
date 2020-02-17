@@ -1,6 +1,7 @@
 const cartIcon = '.cart-icon';
 const signalIcon = '.signal-icon';
 const progressIcon = '.progress-icon';
+const rocketIcon = '.rocket-icon';
 
 //*** ICONS ANIMATIONS
 
@@ -111,6 +112,27 @@ const progressIconAnimation = anime({
   } });
 
 
+//rocket animation
+
+const rocketIconAnimation = anime({
+  targets: `${rocketIcon} path`,
+
+  strokeDashoffset: {
+    value: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 1000,
+    direction: 'alternate' },
+
+
+  fill: {
+    value: '#000',
+    easing: 'linear',
+    duration: 400,
+    delay: 1000 } });
+
+
+
+
 //*** REPLAYS INIT
 
 //cart replay init
@@ -144,4 +166,11 @@ progressReplay.addEventListener('click', function () {
 
   arrowScaleAnimation.pause();
   progressIconAnimation.restart();
+});
+
+//rocket icon replay init
+const rocketReplay = document.querySelector('.rocket-icon').nextElementSibling;
+
+rocketReplay.addEventListener('click', function () {
+  rocketIconAnimation.restart();
 });
