@@ -155,6 +155,12 @@ const chatIconAnimation = anime({
 
 //*** REPLAYS INIT
 
+//common replay function
+const replay = (cbPause, cbRestart) => {
+  cbPause.pause();
+  cbRestart.restart();
+};
+
 //cart replay init
 const cartReplay = document.querySelector('.cart-icon').nextElementSibling;
 
@@ -162,8 +168,7 @@ cartReplay.addEventListener('click', function () {
 
   anime.set(`${cartIcon} .arrow`, { translateY: 0 });
 
-  cartBounceAnimation.pause();
-  cartIconAnimation.restart();
+  replay(cartBounceAnimation, cartIconAnimation);
 });
 
 //signal replay init
@@ -173,8 +178,7 @@ signalReplay.addEventListener('click', function () {
 
   anime.set(`${signalIcon} .signal`, { opacity: 1 });
 
-  signalOpacityAnimation.pause();
-  signalIconAnimation.restart();
+  replay(signalOpacityAnimation, signalIconAnimation);
 });
 
 //progress replay init
@@ -187,8 +191,7 @@ progressReplay.addEventListener('click', function () {
     translateY: 0 });
 
 
-  arrowMoveAnimation.pause();
-  progressIconAnimation.restart();
+  replay(arrowMoveAnimation, progressIconAnimation);
 });
 
 //rocket icon replay init
@@ -201,8 +204,7 @@ rocketReplay.addEventListener('click', function () {
     opacity: 1 });
 
 
-  rocketSmokeAnimation.pause();
-  rocketIconAnimation.restart();
+  replay(rocketSmokeAnimation, rocketIconAnimation);
 });
 
 //chat icon replay init
@@ -211,6 +213,5 @@ const chatReplay = document.querySelector('.chat-icon').nextElementSibling;
 chatReplay.addEventListener('click', function () {
   anime.set(`${chatIcon} .chat-dot`, { opacity: 1 });
 
-  chatDotsAnimation.pause();
-  chatIconAnimation.restart();
+  replay(chatDotsAnimation, chatIconAnimation);
 });
