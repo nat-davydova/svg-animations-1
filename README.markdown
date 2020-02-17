@@ -1,4 +1,10 @@
-# SVG icon animations with Anime.js (pt .1)
- _A Pen created at CodePen.io. Original URL: [https://codepen.io/nat-davydova/pen/jOEgQwp](https://codepen.io/nat-davydova/pen/jOEgQwp).
+# SVG icon animations with Anime.js
 
- 
+[Check the Demo](https://codepen.io/nat-davydova/full/jOEgQwp)
+
+<img src="http://natali-davydova.me/assets/img/portfolio/svg-anim/sample.png" width="550" />
+
+* HTML/Pug
+* SCSS/CSS
+* Anime.js for SVG animations
+* Partly Crossbrowser (Chrome, FF, Safari, Opera)
