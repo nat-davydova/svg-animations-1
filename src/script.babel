@@ -2,6 +2,7 @@ const cartIcon = '.cart-icon';
 const signalIcon = '.signal-icon';
 const progressIcon = '.progress-icon';
 const rocketIcon = '.rocket-icon';
+const chatIcon = '.chat-icon';
 
 //*** ICONS ANIMATIONS
 
@@ -150,6 +151,42 @@ const rocketIconAnimation = anime({
   
 });
 
+//chat animation
+let chatDotsAnimation;
+
+const chatIconAnimation = anime({
+  targets: `${chatIcon} path`,
+  
+  strokeDashoffset: {
+    value: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 1000,
+    direction: 'alternate',
+  },
+  
+  fill: {
+    value: '#000',
+    easing: 'linear',
+    duration: 400,
+    delay: 1000,
+  },
+  
+  complete: function() {
+    
+    chatDotsAnimation = anime({
+      targets: `${chatIcon} .chat-dot`,
+      opacity: [1, 0],
+      duration: 450,
+      delay: anime.stagger(150),
+      easing: 'linear',
+      direction: 'alternate',
+      loop: true
+    });
+    
+  }
+  
+});
+
 //*** REPLAYS INIT
 
 //cart replay init
@@ -197,4 +234,14 @@ rocketReplay.addEventListener('click', function() {
   
   rocketSmokeAnimation.pause();
   rocketIconAnimation.restart();
+});
+
+//chat icon replay init
+const chatReplay = document.querySelector('.chat-icon').nextElementSibling;
+
+chatReplay.addEventListener('click', function() {
+  anime.set(`${chatIcon} .chat-dot`, {opacity: 1});
+  
+  chatDotsAnimation.pause();
+  chatIconAnimation.restart();
 });
