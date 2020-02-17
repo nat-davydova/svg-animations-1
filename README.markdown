@@ -6,5 +6,6 @@
 
 * HTML/Pug
 * SCSS/CSS
+* JS (ES6+, Babel)
 * Anime.js for SVG animations
 * Partly Crossbrowser (Chrome, FF, Safari, Opera)
