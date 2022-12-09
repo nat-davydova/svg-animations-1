@@ -2,7 +2,7 @@
 
 [Check the Demo](https://codepen.io/nat-davydova/full/jOEgQwp)
 
-<img src="http://natali-davydova.me/assets/img/svg-anim/sample.png" width="550" />
+<img src="http://eisenpar.com/portfolio2/assets/img/svg-anim/sample.png" width="550" />
 
 * HTML/Pug
 * SCSS/CSS
